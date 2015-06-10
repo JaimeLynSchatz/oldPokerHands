@@ -15,10 +15,20 @@ package com.itrellis.pokerHands;
 //        Black wins.
 //        Tie.
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+
+        // Build Deck
+        List<String> suits = new ArrayList<String>();
+        suits.add("H");
+        suits.add("D");
+        suits.add("S");
+        suits.add("C");
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
 
