@@ -16,6 +16,7 @@ package com.itrellis.pokerHands;
 //        Tie.
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -32,7 +33,13 @@ public class Main {
 
         String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
 
-        
+
+        //int[] original = new int[300000];
+        //int[] firstHalf = Arrays.copyOfRange(original, 0, original.length/2);
+
+        String[] playerHand = Arrays.copyOfRange(firstRound, 0, firstRound.length / 2);
+        String[] houseHand = Arrays.copyOfRange(firstRound, firstRound.length/2 + 1, firstRound.length - 1);
+        System.out.println(playerHand[houseHand.length-1] + " " + houseHand[houseHand.length-1]);
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
 
