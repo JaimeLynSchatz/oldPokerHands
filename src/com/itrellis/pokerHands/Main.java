@@ -33,15 +33,21 @@ public class Main {
 
         String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
 
-
-        //int[] original = new int[300000];
-        //int[] firstHalf = Arrays.copyOfRange(original, 0, original.length/2);
-
         String[] playerHand = Arrays.copyOfRange(firstRound, 0, firstRound.length / 2);
         String[] houseHand = Arrays.copyOfRange(firstRound, firstRound.length/2 + 1, firstRound.length - 1);
-        System.out.println(playerHand[houseHand.length-1] + " " + houseHand[houseHand.length-1]);
+
+        Arrays.sort(playerHand);
+        Arrays.sort(houseHand);
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
+        String lastCard = playerHand[0];
+
+        for(int i = 1; i < playerHand.length; i++) {
+            System.out.println(card);
+            if(lastCard[1] == playerHand[i][1]){
+                
+            }
+        }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
 
