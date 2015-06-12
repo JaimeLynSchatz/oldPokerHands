@@ -23,12 +23,16 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        // Build Deck
+        // Build Deck -- not sure about this
         List<String> suits = new ArrayList<String>();
         suits.add("H");
         suits.add("D");
         suits.add("S");
         suits.add("C");
+
+        String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
+
+        
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
 
