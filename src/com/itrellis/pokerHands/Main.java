@@ -24,6 +24,9 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
+        // Take the hand of cards and go through it in a cycle, making lists<> of the suits, ranks, etc.
+        // Then have rules regarding those lists.
+
         // Build Deck -- not sure about this
         List<String> suits = new ArrayList<String>();
         suits.add("H");
@@ -45,7 +48,7 @@ public class Main {
         for(int i = 1; i < playerHand.length; i++) {
             System.out.println(card);
             if(lastCard[1] == playerHand[i][1]){
-                
+
             }
         }
 
