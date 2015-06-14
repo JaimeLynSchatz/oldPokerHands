@@ -15,47 +15,48 @@ package com.itrellis.pokerHands;
 //        Black wins.
 //        Tie.
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
 
+        class Hand {
+            // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
+            List<String> cards = new ArrayList<String>();
+            Map<String, Integer> suits = new HashMap<String, Integer>();
+            Map<String, Integer> ranks = new HashMap<String, Integer>();
+
+            public Hand(String[] playerHand){
+                for (String card : playerHand) {
+                    cards.add(card);
+                    System.out.println(card);
+                    suits.add(Char.toString(card.charAt(1))., suits[card[1]] == null? 0 : suits[card[1]] + 1);
+//                    ranks.add()
+                }
+            }
+        }
         // Take the hand of cards and go through it in a cycle, making lists<> of the suits, ranks, etc.
         // Then have rules regarding those lists.
+        String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
+        Hand player = new Hand(Arrays.copyOfRange(firstRound, 0, firstRound.length/2));
+        Hand house = new Hand(Arrays.copyOfRange(firstRound, firstRound.length/2, firstRound.length - 1));
 
         // Build Deck -- not sure about this
-        List<String> suits = new ArrayList<String>();
-        suits.add("H");
-        suits.add("D");
-        suits.add("S");
-        suits.add("C");
 
-        String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
-        String shortString = "Jaime";
-        for (int j = 0; j < shortString.length(); j++) {
-            char piece = shortString.charAt(j);
-            System.out.println(Character.toString(piece));
-        }
 
-        String[] playerHand = Arrays.copyOfRange(firstRound, 0, firstRound.length / 2);
-        String[] houseHand = Arrays.copyOfRange(firstRound, firstRound.length/2 + 1, firstRound.length - 1);
 
-        Arrays.sort(playerHand);
-        Arrays.sort(houseHand);
+
+//        Working with Strings and Characters
+//        String shortString = "Jaime";
+//        for (int j = 0; j < shortString.length(); j++) {
+//            char piece = shortString.charAt(j);
+//            System.out.println(Character.toString(piece));
+//        }
+
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
-        String lastCard = playerHand[0];
-
-        for(int i = 1; i < playerHand.length; i++) {
-            System.out.println(playerHand[i]);
-//            if(lastCard[1] == playerHand[i][1]){
-//
-//            }
-        }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
 
