@@ -35,6 +35,11 @@ public class Main {
         suits.add("C");
 
         String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
+        String shortString = "Jaime";
+        for (int j = 0; j < shortString.length(); j++) {
+            char piece = shortString.charAt(j);
+            System.out.println(Character.toString(piece));
+        }
 
         String[] playerHand = Arrays.copyOfRange(firstRound, 0, firstRound.length / 2);
         String[] houseHand = Arrays.copyOfRange(firstRound, firstRound.length/2 + 1, firstRound.length - 1);
@@ -46,10 +51,10 @@ public class Main {
         String lastCard = playerHand[0];
 
         for(int i = 1; i < playerHand.length; i++) {
-            System.out.println(card);
-            if(lastCard[1] == playerHand[i][1]){
-
-            }
+            System.out.println(playerHand[i]);
+//            if(lastCard[1] == playerHand[i][1]){
+//
+//            }
         }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
