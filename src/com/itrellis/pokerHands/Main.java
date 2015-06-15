@@ -32,12 +32,11 @@ public class Main {
             public Hand(String[] playerHand){
                 // tried starting at 0 for collection, but can't do that for ranks -- too much
                 for (String card : playerHand) {
-                    // why is this use ok
                     cards.add(card);
-                    // but these uses are wrong?
-                    ranks.put(card.charAt(0), 1);
-                    //ranks.add(card.charAt(0), 1);
-                    suits.put(card.charAt(1), 1);
+                    int currentRankCount = ranks.get(card.charAt(0));
+                    int currentSuitCount = ranks.get(card.charAt(1));
+                    ranks.put(card.charAt(0), ++currentRankCount);  // can't test with null comparison
+                    suits.put(card.charAt(1), ++currentSuitCount);  // will primatives default to zero??
                 }
             }
         }
@@ -48,22 +47,18 @@ public class Main {
         Hand player = new Hand(Arrays.copyOfRange(firstRound, 0, firstRound.length/2));
         Hand house = new Hand(Arrays.copyOfRange(firstRound, firstRound.length/2, firstRound.length - 1));
 
-        // Build Deck -- not sure about this
-
-
-
-
-//        Working with Strings and Characters
-//        String shortString = "Jaime";
-//        for (int j = 0; j < shortString.length(); j++) {
-//            char piece = shortString.charAt(j);
-//            System.out.println(Character.toString(piece));
-//        }
-
-
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
+        if (player.suits.containsValue(5) { // then they're all the same suit
+            // test here for consecutive ranks
+        }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
+        if (player.ranks.containsValue(4)) {
+            System.out.println("Four of a kind!!");
+            // no real way to retrieve value
+            // test for rank of fifth card
+
+        }
 
         // Full house: three of a kind, and a pair, ranked by the value of the three cards
 
