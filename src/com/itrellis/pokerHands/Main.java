@@ -16,6 +16,7 @@ package com.itrellis.pokerHands;
 //        Tie.
 
 import java.util.*;
+import java.util.HashMap;
 
 public class Main {
 
@@ -31,13 +32,16 @@ public class Main {
             public Hand(String[] playerHand){
                 // tried starting at 0 for collection, but can't do that for ranks -- too much
                 for (String card : playerHand) {
+                    // why is this use ok
                     cards.add(card);
-                    System.out.println(card);
-                    ranks.add(card.charAt(0), 1);
-                    suits.add(card.charAt(1), 1);
+                    // but these uses are wrong?
+                    ranks.put(card.charAt(0), 1);
+                    //ranks.add(card.charAt(0), 1);
+                    suits.put(card.charAt(1), 1);
                 }
             }
         }
+
         // Take the hand of cards and go through it in a cycle, making lists<> of the suits, ranks, etc.
         // Then have rules regarding those lists.
         String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
