@@ -25,15 +25,16 @@ public class Main {
         class Hand {
             // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
             List<String> cards = new ArrayList<String>();
-            Map<String, Integer> suits = new HashMap<String, Integer>();
-            Map<String, Integer> ranks = new HashMap<String, Integer>();
+            Map<Character, Integer> suits = new HashMap<Character, Integer>();
+            Map<Character, Integer> ranks = new HashMap<Character, Integer>();
 
             public Hand(String[] playerHand){
+                // tried starting at 0 for collection, but can't do that for ranks -- too much
                 for (String card : playerHand) {
                     cards.add(card);
                     System.out.println(card);
-                    suits.add(Char.toString(card.charAt(1))., suits[card[1]] == null? 0 : suits[card[1]] + 1);
-//                    ranks.add()
+                    ranks.add(card.charAt(0), 1);
+                    suits.add(card.charAt(1), 1);
                 }
             }
         }
