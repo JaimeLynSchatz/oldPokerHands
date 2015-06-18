@@ -48,12 +48,12 @@ public class Main {
         Hand house = new Hand(Arrays.copyOfRange(firstRound, firstRound.length/2, firstRound.length - 1));
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
-        if (player.suits.containsValue(5) { // then they're all the same suit
+        if (player.suits.size() == 1) { // then they're all the same suit
             // test here for consecutive ranks
         }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
-        if (player.ranks.containsValue(4)) {
+        if (player.ranks.size() == 2) {  // this won't work -- 
             System.out.println("Four of a kind!!");
             // no real way to retrieve value
             // test for rank of fifth card
