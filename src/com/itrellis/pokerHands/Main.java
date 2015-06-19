@@ -23,9 +23,22 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
+        class Card {
+            private String fullCard = "";
+            private String rank = "";
+            private String suit = "";
+
+            public String (String rankAndSuit) {
+                this.rank = toString(rankAndSuit.charAt(0));
+                this.rank = toString(rankAndSuit.charAt(1));
+                this.fullCard = "something good here";
+                return this.fullCard;
+            }
+        }
         class Hand {
             // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
             List<String> cards = new ArrayList<String>();
+
             Map<Character, Integer> suits = new HashMap<Character, Integer>();
             Map<Character, Integer> ranks = new HashMap<Character, Integer>();
 
@@ -53,7 +66,7 @@ public class Main {
         }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
-        if (player.ranks.size() == 2) {  // this won't work -- 
+        if (player.ranks.size() == 2) {  // this won't work --
             System.out.println("Four of a kind!!");
             // no real way to retrieve value
             // test for rank of fifth card
