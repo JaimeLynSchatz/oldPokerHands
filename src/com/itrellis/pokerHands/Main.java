@@ -24,7 +24,6 @@ package com.itrellis.pokerHands;
 //        }
 
 import java.util.*;
-import java.util.HashMap;
 
 public class Main {
 
@@ -45,19 +44,38 @@ public class Main {
 
         class Hand {
             // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
-            List<Card> cards = new ArrayList<>();
+            List<Card> cards = new ArrayList<Card>();
+
+            public void showHand() {
+                for (Card card : this.cards) {
+                    System.out.println(card.rank + " of " + card.suit);
+                }
+
+            }
         }
 
         // Take the list, make Cards and then two Hands out of the cards
         String firstRound = "2H 3D 5S 9C KD 2C 3H 4S 8C AH";
         String[] cardArray = new String[10];
         cardArray = firstRound.split(" ");
+        Hand playerHand = new Hand();
+        Hand houseHand = new Hand();
+
         for (String card : cardArray) {
             System.out.println("Creating Card: " + card);
 
             Card cardX = new Card(card);
-            
+            if (playerHand.cards.size() < 5) {
+                playerHand.cards.add(cardX);
+            }
+            else {
+                houseHand.cards.add(cardX);
+            }
         }
+
+        playerHand.showHand();
+        houseHand.showHand();
+
 
         // this is for the old method of creating hands
         //Hand player = new Hand(Arrays.copyOfRange(firstRound, 0, firstRound.length/2));
