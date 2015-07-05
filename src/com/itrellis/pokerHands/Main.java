@@ -15,6 +15,14 @@ package com.itrellis.pokerHands;
 //        Black wins.
 //        Tie.
 
+// String Test:
+//if (card instanceof String) {
+//        System.out.println("Yes, it's a string");
+//        }
+//        else {
+//        System.out.println("Nope. Try again.");
+//        }
+
 import java.util.*;
 import java.util.HashMap;
 
@@ -27,6 +35,12 @@ public class Main {
             private String fullCard = "";
             private String rank = "";
             private String suit = "";
+
+            public Card(String card) {
+                this.fullCard = card;
+                this.rank = Character.toString(card.charAt(0));
+                this.suit = Character.toString(card.charAt(1));
+            }
         }
 
         class Hand {
@@ -39,7 +53,10 @@ public class Main {
         String[] cardArray = new String[10];
         cardArray = firstRound.split(" ");
         for (String card : cardArray) {
-            System.out.println(card);
+            System.out.println("Creating Card: " + card);
+
+            Card cardX = new Card(card);
+            
         }
 
         // this is for the old method of creating hands
