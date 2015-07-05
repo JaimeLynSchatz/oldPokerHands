@@ -28,7 +28,7 @@ public class Main {
             private String rank = "";
             private String suit = "";
 
-            public String (String rankAndSuit) {
+            public String Card(String rankAndSuit) {
                 this.rank = toString(rankAndSuit.charAt(0));
                 this.rank = toString(rankAndSuit.charAt(1));
                 this.fullCard = "something good here";
@@ -58,7 +58,11 @@ public class Main {
         // Then have rules regarding those lists.
         String[] firstRound = {"2H", "3D", "5D", "9C", "KD", "2C", "3H", "4S", "8C", "AH"};
         Hand player = new Hand(Arrays.copyOfRange(firstRound, 0, firstRound.length/2));
+        System.out.println(player);
+
         Hand house = new Hand(Arrays.copyOfRange(firstRound, firstRound.length/2, firstRound.length - 1));
+
+
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
         if (player.suits.size() == 1) { // then they're all the same suit
