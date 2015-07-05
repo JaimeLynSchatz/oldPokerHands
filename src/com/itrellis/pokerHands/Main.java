@@ -40,11 +40,15 @@ public class Main {
                 this.rank = Character.toString(card.charAt(0));
                 this.suit = Character.toString(card.charAt(1));
             }
+
+            public String getRank() {
+                return this.rank;
+            }
         }
 
         class Hand {
             // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
-            List<Card> cards = new ArrayList<Card>();
+            public List<Card> cards = new ArrayList<Card>();
 
             public void showHand() {
                 for (Card card : this.cards) {
@@ -76,19 +80,13 @@ public class Main {
         playerHand.showHand();
         houseHand.showHand();
 
-
-        // this is for the old method of creating hands
-        //Hand player = new Hand(Arrays.copyOfRange(firstRound, 0, firstRound.length/2));
-        //System.out.println(player);
-
-        //Hand house = new Hand(Arrays.copyOfRange(firstRound, firstRound.length/2, firstRound.length - 1));
-        //System.out.println(house);
-
-
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
-        //if (player.suits.size() == 1) { // then they're all the same suit
-            // test here for consecutive ranks
-        //}
+        for (int i = 0; i < playerHand.cards.size(); i++) {
+            String currentCard = playerHand.cards(i);
+            System.out.println(playerHand.cards(i).getRank());
+                // could possibly be a Straight Flush
+            }
+        }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
         //if (player.ranks.size() == 2) {  // this won't work --
