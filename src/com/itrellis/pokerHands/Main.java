@@ -25,38 +25,69 @@ package com.itrellis.pokerHands;
 
 import java.util.*;
 
+class Card {
+    private String fullCard = "";
+    private String rank = "";
+    private String suit = "";
+
+    public Card(String card) {
+        System.out.println("Creating Card: " + card);
+
+        this.fullCard = card;
+        this.rank = Character.toString(card.charAt(0));
+        this.suit = Character.toString(card.charAt(1));
+
+        System.out.println("Creating Card: " + rank + " " + suit);
+    }
+
+    public Card(String rank, String suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
+
+    public String getRank() {
+        return this.rank;
+    }
+    public String getSuit() {
+        return this.suit;
+    }
+}
+
+class Hand {
+    // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
+    private List<Card> cards = new ArrayList<Card>();
+
+    public Hand() {
+
+    }
+    public Hand(List<Card> cards) {
+
+    }
+
+    public String toString() {
+        String result = "[";
+        for (Card card : this.cards) {
+            result += "" + card.getRank() + card.getSuit() + " ";
+        }
+        result += "]";
+
+        return result;
+    }
+
+    public Card getCard(int which) {
+        return cards.get(which);
+    }
+    public void addCard(Card card) {
+        cards.add(card);
+    }
+}
+
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
 
-        class Card {
-            private String fullCard = "";
-            private String rank = "";
-            private String suit = "";
-
-            public Card(String card) {
-                this.fullCard = card;
-                this.rank = Character.toString(card.charAt(0));
-                this.suit = Character.toString(card.charAt(1));
-            }
-
-            public String getRank() {
-                return this.rank;
-            }
-        }
-
-        class Hand {
-            // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
-            public List<Card> cards = new ArrayList<Card>();
-
-            public void showHand() {
-                for (Card card : this.cards) {
-                    System.out.println(card.rank + " of " + card.suit);
-                }
-
-            }
-        }
 
         // Take the list, make Cards and then two Hands out of the cards
         String firstRound = "2H 3D 5S 9C KD 2C 3H 4S 8C AH";
@@ -65,28 +96,23 @@ public class Main {
         Hand playerHand = new Hand();
         Hand houseHand = new Hand();
 
+        int cardCount = 0;
         for (String card : cardArray) {
-            System.out.println("Creating Card: " + card);
-
             Card cardX = new Card(card);
-            if (playerHand.cards.size() < 5) {
-                playerHand.cards.add(cardX);
+            if (cardCount < 5) {
+                playerHand.addCard(cardX);
             }
             else {
-                houseHand.cards.add(cardX);
+                houseHand.addCard(cardX);
             }
+
+            cardCount++;
         }
 
-        playerHand.showHand();
-        houseHand.showHand();
+        System.out.println(playerHand);
+        System.out.println(houseHand);
 
         // Straight Flush: same suit, 5 consecutive cards, ranked by highest card
-        for (int i = 0; i < playerHand.cards.size(); i++) {
-            String currentCard = playerHand.cards(i);
-            System.out.println(playerHand.cards(i).getRank());
-                // could possibly be a Straight Flush
-            }
-        }
 
         // Four of a Kind: four cards, same rank, ranked by card rank
         //if (player.ranks.size() == 2) {  // this won't work --
