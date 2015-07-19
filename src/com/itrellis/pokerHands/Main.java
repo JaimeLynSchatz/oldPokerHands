@@ -37,7 +37,7 @@ class Card {
         this.rank = Character.toString(card.charAt(0));
         this.suit = Character.toString(card.charAt(1));
 
-        System.out.println("Creating Card: " + rank + " " + suit);
+        System.out.println("Created Card: " + rank + " " + suit);
     }
 
     public Card(String rank, String suit) {
@@ -54,7 +54,6 @@ class Card {
 }
 
 class Hand {
-    // Does this need to be a List or would an array work? Or is it better to use Collections on principle?
     private List<Card> cards = new ArrayList<Card>();
 
     public Hand() {
@@ -80,7 +79,9 @@ class Hand {
     public void addCard(Card card) {
         cards.add(card);
     }
+
 }
+
 
 
 public class Main {
@@ -88,26 +89,32 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-
         // Take the list, make Cards and then two Hands out of the cards
-        String firstRound = "2H 3D 5S 9C KD 2C 3H 4S 8C AH";
-        String[] cardArray = new String[10];
-        cardArray = firstRound.split(" ");
-        Hand playerHand = new Hand();
-        Hand houseHand = new Hand();
+        public static void deal(int numberOfHands, String deck) {
 
-        int cardCount = 0;
-        for (String card : cardArray) {
-            Card cardX = new Card(card);
-            if (cardCount < 5) {
-                playerHand.addCard(cardX);
-            }
-            else {
-                houseHand.addCard(cardX);
-            }
+            String[] cardArray = new String[numberOfHands * 5];
+            cardArray = deck.split(" ");
 
-            cardCount++;
+            Hand playerHand = new Hand();
+            Hand houseHand = new Hand();
+
+            int cardCount = 0;
+            for (String card : cardArray) {
+                Card cardX = new Card(card);
+                if (cardCount < 5) {
+                    playerHand.addCard(cardX);
+                }
+                else {
+                    houseHand.addCard(cardX);
+                }
+
+                cardCount++;
+            }
         }
+
+        String deck = "2H 3D 5S 9C KD 2C 3H 4S 8C AH";
+        int numberOfPlayers = 2;
+        deal(numberOfPlayers, deck);
 
         System.out.println(playerHand);
         System.out.println(houseHand);
